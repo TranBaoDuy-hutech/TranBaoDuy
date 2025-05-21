@@ -1,0 +1,37 @@
+﻿@model TranBaoDuy_2280600488.Models.Product
+
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="card mt-3 p-3 shadow-sm">
+    <dl class="row">
+        <dt class="col-sm-3">Tên sản phẩm</dt>
+        <dd class="col-sm-9">@Model.Name</dd>
+
+        <dt class="col-sm-3">Giá</dt>
+        <dd class="col-sm-9">@Model.Price.ToString("N0") VNĐ</dd>
+
+        <dt class="col-sm-3">Mô tả</dt>
+        <dd class="col-sm-9">@Model.Description</dd>
+
+        <dt class="col-sm-3">Danh mục</dt>
+        <dd class="col-sm-9">@Model.Category?.Name</dd>
+
+        <dt class="col-sm-3">Hình ảnh</dt>
+        <dd class="col-sm-9">
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <img src="@Url.Content("~/" + Model.ImageUrl)" alt="Ảnh sản phẩm" style="max-width: 300px;" />
+            }
+            else
+            {
+                <em>Không có hình ảnh</em>
+            }
+        </dd>
+    </dl>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary mt-3">Quay lại danh sách</a>

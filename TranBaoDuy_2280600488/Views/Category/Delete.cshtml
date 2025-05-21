@@ -1,0 +1,16 @@
+﻿@model TranBaoDuy_2280600488.Models.Category
+
+@{
+    ViewData["Title"] = "Xoá danh mục";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="alert alert-warning" role="alert">
+    Bạn có chắc chắn muốn xoá danh mục "@Model.Name" không?
+</div>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <button type="submit" class="btn btn-danger">Xoá</button>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+</form>

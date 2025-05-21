@@ -1,0 +1,18 @@
+﻿@model TranBaoDuy_2280600488.Models.Category
+
+@{
+    ViewData["Title"] = "Sửa danh mục";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Edit" method="post">
+    <div class="form-group">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-warning mt-3">Cập nhật</button>
+</form>
+
+<a asp-action="Index" class="btn btn-secondary mt-3">Quay lại danh sách</a>

@@ -1,0 +1,27 @@
+﻿@model TranBaoDuy_2280600488.Models.Product
+
+@{
+    ViewData["Title"] = "Xóa sản phẩm";
+}
+
+<h2 class="mb-4">@ViewData["Title"]</h2>
+
+<div class="alert alert-warning">
+    <h4>Bạn có chắc chắn muốn xóa sản phẩm?</h4>
+    <p><strong>Tên sản phẩm:</strong> @Model.Name</p>
+    <p><strong>Giá:</strong> @Model.Price.ToString("N0") VND</p>
+    <p><strong>Danh mục:</strong> @Model.Category?.Name</p>
+
+    @if (!string.IsNullOrEmpty(Model.ImageUrl))
+    {
+        <div class="mt-3">
+            <img src="@Model.ImageUrl" alt="Product Image" style="max-width: 200px;" />
+        </div>
+    }
+
+    <form asp-action="DeleteConfirmed" method="post" class="mt-4">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+    </form>
+</div>
